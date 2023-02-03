@@ -1,7 +1,55 @@
 import "./App.css";
+import "./index";
+import Articles from "./components/Articles";
+import { useEffect, useState } from "react";
 
-function App() {
-  return <div className="App"></div>;
+const title = "Sorting Articles";
+function App({ articles }) {
+  const [flag, setFlag] = useState(true);
+  const sortedVotes = () => {
+    let res;
+    articles.sort((a, b) =>
+      a.upvotes > b.upvotes ? -1 : b.upvotes > a.upvotes ? 1 : 0
+    );
+    res = articles;
+    return res;
+  };
+  const sortedDates = () => {
+    let res;
+    articles.sort((a, b) => (a.date > b.date ? -1 : b.date > a.date ? 1 : 0));
+    res = articles;
+    return res;
+  };
+
+  return (
+    <div className="App">
+      {/* {articles.map((items) => {
+        return <span>{items.title}</span>;
+      })} */}
+      <h8k-navbar header={title}></h8k-navbar>
+      <div className="layout-row align-items-center justify-content-center my-20 navigation">
+        <label className="form-hint mb-0 text-uppercase font-weight-light">
+          Sort By
+        </label>
+        <button
+          data-testid="most-upvoted-link"
+          className="small"
+          onClick={() => setFlag(true)}
+        >
+          Most Upvoted
+        </button>
+        <button
+          data-testid="most-recent-link"
+          className="small"
+          onClick={() => setFlag(false)}
+        >
+          Most Recent
+        </button>
+      </div>
+
+      <Articles articles={flag ? sortedVotes() : sortedDates()} />
+    </div>
+  );
 }
 
 export default App;
