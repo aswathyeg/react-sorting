@@ -22,15 +22,13 @@ function App({ articles }) {
   };
 
   return (
-    <div className="App">
+    <div>
       {/* {articles.map((items) => {
         return <span>{items.title}</span>;
       })} */}
       <h8k-navbar header={title}></h8k-navbar>
-      <div className="layout-row align-items-center justify-content-center my-20 navigation">
-        <label className="form-hint mb-0 text-uppercase font-weight-light">
-          Sort By
-        </label>
+      <div className="App">
+        <label className="sort">Sort By</label>
         <button
           data-testid="most-upvoted-link"
           className="small"

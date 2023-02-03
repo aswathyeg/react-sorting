@@ -2,10 +2,10 @@ import React from "react";
 
 const Articles = ({ articles }) => {
   return (
-    <div className="card w-50 mx-auto">
+    <div className="App">
       <table>
         <thead>
-          <tr>
+          <tr className="tableRaw">
             <th>Title</th>
             <th>Upvotes</th>
             <th>Date</th>
