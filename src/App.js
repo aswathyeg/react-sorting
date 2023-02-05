@@ -20,7 +20,7 @@ function App({ articles }) {
     res = articles;
     return res;
   };
-
+  useEffect(() => {}, [flag]);
   return (
     <div>
       {/* {articles.map((items) => {
